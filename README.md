@@ -24,13 +24,20 @@ As we are entering credentials into the website we need a password to be retriev
   2. Setup a scheduled task in the following way:
     - Account -> Service Account Script will run as
     - Action -> Powershell.exe -executionpolicy bypass -file <Path to script snippet below>
-    - Script file
-      #Enter the password
-      $Password = "PASSWORD"
-      #Enter Location of the output file
-      $PasswordFile = "C:\Password.txt"
-      $Password | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Out-File $PasswordFile
+    - Script file <br />
+      #Enter the password <br />
+      $Password = "PASSWORD" <br />
+      #Enter Location of the output file <br />
+      $PasswordFile = "C:\Password.txt" <br />
+      $Password | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Out-File $PasswordFile <br />
 
+ 3. Run the scheduled task
+ 4. Look for C:\Password.txt and copy it to the location of the script
+ 5. The script then retrieves the Password with the following
+    $Password = Get-Content $PSScriptRoot\Password.txt | Convertto-securestring
+    $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password))
+
+ 
 ### Setting up correct web tags
 When first setting these scripts up the HTML Tags may need to be changed to work with your companies Serivce-Now environment as I assume they are not the same everywhere.
 
