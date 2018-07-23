@@ -1,6 +1,6 @@
 # ServiceNow-IEAutomation
 
-This repository is a collection of PowerShell scripts I made to be able to automate the logging of tickets in Service-Now.
+This repository is a collection of PowerShell scripts I made to be able to automate the logging of tickets in Service-Now via an Internet Explorer COMObject.
 
 ## Use
 Store in a central location ideally using a DNS Name for the server its on so if the location changes you will not need to update multiple scripts or processes that call them
